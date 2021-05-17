@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+  <title>docsify demo</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 </head>
 <body>
-  <div id="app"></div>
+    <nav style="position: fixed;width: 100%">
+      <a href="#/">EN1</a>
+      <a href="#/">EN2</a>
+      <a href="#/">EN3</a>
+      <a href="#/">EN4</a>
+      <a href="#/">EN5</a>
+      <a href="#/">EN6</a>
+      <a href="#/zh-cn/">中文</a>
+    </nav>
+  <div id="app">Please wait...</div>
   <script>
     window.$docsify = {
       name: '',
@@ -35,9 +46,19 @@
         successText: '已复制'
       }
       // 文档加载的根路径，可以是二级路径或者是其他域名的路径。
-      // basePath: '/'
+      //basePath: '/doc'
     }
+    console.log(top.location.href )
+	// 不希望直接通过文档站访问,需要通过指定的包装站访问,相当于权限限制
+	// 这里使用top.location.hostname是因为我是用iframe在别的网站进行引用的
+    if(top.location.hostname == 'xxx'){
+      window.location.href = "https://xxx/doc/no_permission.html"
+    }
+
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+  <script src="//unpkg.com/docsify-copy-code"></script>
 </body>
 </html>
