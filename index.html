@@ -10,7 +10,32 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      //...
+      name: '',
+      repo: '',
+      // 添加logo
+      logo:'https://open.unionpay.com/tjweb/resources/images/new/nav/logo_on.png?v=20210219190833',
+      // 加载自定义导航栏，
+      loadNavbar: true,
+      loadNavbar: 'navbar.md',
+      // 切换页面后是否自动跳转到页面顶部。
+      auto2top: true,
+      // 添加搜索框
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: ['auto'], // or 'auto'
+        placeholder: '搜索',
+        noData: '找不到结果',
+        // 搜索标题的最大程级, 1 - 6
+        depth: 2
+      },
+      // 剪切板
+      copyCode: {
+        buttonText : '复制',
+        errorText  : '错误',
+        successText: '已复制'
+      },
+      // 文档加载的根路径，可以是二级路径或者是其他域名的路径。
+      basePath: '/'
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
